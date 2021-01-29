@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
     public enum GameState {
         MainMenu,
         Game,
@@ -28,13 +27,33 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Not sure if this structure is necessary
+        // Can be removed if not needed
         if(gameState == GameState.Game) {
-            if()
 
         } else if (gameState == GameState.MainMenu) {
 
         } else if (gameState == GameState.GameOver) {
 
         }
+    }
+
+    public void StartGame() {
+        this.gameState = GameState.Game;
+        Scene scene = SceneManager.GetActiveScene();
+        if(scene.name == "MainMenu") {
+            SceneManager.LoadScene("GameScene");
+        }
+
+        // Spawn players
+        // Set options / scores / etc
+        // Other initialization
+    }
+
+    public void EndGame() {
+        this.gameState = GameState.GameOver;
+
+        // Open some menu or something
+        // Despawn / stop players from playing
     }
 }
