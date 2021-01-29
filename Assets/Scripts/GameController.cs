@@ -15,15 +15,21 @@ public class GameController : MonoBehaviour
     public int someNumber = 0;
 
     public GameState gameState = GameState.Game; 
-    void Start()
+    void Awake()
     {
-        
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("GameController");
+        if(objects.Length > 1) {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(gameState == GameState.Game) {
+            if()
 
         } else if (gameState == GameState.MainMenu) {
 
