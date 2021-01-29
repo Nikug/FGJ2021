@@ -5,17 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
-<<<<<<< HEAD
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    public float playerSpeed = 2.0f;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
-=======
     public float playerSpeed = 6.0f;
     public float playerYPosition;
     public GameObject playerBase;
->>>>>>> 410d3c125de8648e9d2f66b0f137b16a1bb663ca
     // Start is called before the first frame update
     void Start()
     {
