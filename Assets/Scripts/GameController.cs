@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
     public void StartGame() {
         this.gameState = GameState.Game;
         Scene scene = SceneManager.GetActiveScene();
-        if(scene.name == "MainMenu") {
+        if(scene.name != "GameScene") {
             SceneManager.LoadScene("GameScene");
         }
 
@@ -55,5 +55,13 @@ public class GameController : MonoBehaviour
 
         // Open some menu or something
         // Despawn / stop players from playing
+    }
+
+    public void ReturnToMainMenu() {
+        this.gameState = GameState.MainMenu;
+        Scene scene = SceneManager.GetActiveScene();
+        if(scene.name != "MainMenu") {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
