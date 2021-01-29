@@ -14,7 +14,7 @@ public class LostChild {
         PropellerHat,
         Cap,
         Beanie,
-        Fedora,
+        FurHat,
 
     }
 
