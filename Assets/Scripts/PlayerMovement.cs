@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     public float playerSpeed = 6.0f;
     public float playerYPosition;
-    public GameObject playerObject;
+    public GameObject playerBase;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         /* Fix to Player Y Position */
-        playerObject.transform.position = new Vector3(playerObject.transform.position.x,
+        playerBase.transform.position = new Vector3 (playerBase.transform.position.x,
                                                     playerYPosition, 
-                                                    playerObject.transform.position.z);
+                                                    playerBase.transform.position.z);
     }
 }
