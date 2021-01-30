@@ -4,14 +4,14 @@ using UnityEngine;
 using System;
 using System.Linq;
 
-public class MiserableParent {
+public class MiserableParent : MonoBehaviour {
     private LostChild child = null;
     private int numberOfAttributes = 0;
     private int pointsToGive = 0;
     private int POINTS_PER_ATTRIBUTE = 50;
     private System.Random random = new System.Random();
 
-    public MiserableParent() {
+    private MiserableParent() {
         this.changeChild();
     }
 
@@ -73,16 +73,14 @@ public class MiserableParent {
             }            
         }
 
+        /*
         Debug.Log(randomChild.getSize());
         Debug.Log(randomChild.getStolenItem());
         Debug.Log(randomChild.getHat());
         Debug.Log(randomChild.getColor());
+        */
 
         return randomChild;
-    }
-
-    public LostChild getChild() {
-        return child;
     }
 
     private void changeChild() {
@@ -91,6 +89,14 @@ public class MiserableParent {
         pointsToGive = numberOfAttributes * POINTS_PER_ATTRIBUTE;
 
         this.offerChild(this.getRandomLostChildWithNAttributes(4));
+    }
+
+    private LostChild getChild() {
+        return child;
+    }
+
+    private int getPoints() {
+        return pointsToGive;
     }
 
     public bool offerChild(LostChild offeredChild) {
@@ -114,19 +120,17 @@ public class MiserableParent {
 
         int scoreNeededToPass = random.Next(1, numberOfAttributes + 1);
 
-        /*
         Debug.Log("matchingAttributes");
         Debug.Log(matchingAttributes);
         Debug.Log("scoreNeededToPass");
         Debug.Log(scoreNeededToPass);
-        */
 
         if (matchingAttributes >= scoreNeededToPass) {
-            //Debug.Log("passed");
+            Debug.Log("passed");
             return true;
         }
 
-        //Debug.Log("failed");
+        Debug.Log("failed");
         return false;
     }
 }

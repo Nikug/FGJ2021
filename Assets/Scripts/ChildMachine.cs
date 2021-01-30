@@ -10,6 +10,7 @@ public class ChildMachine : MonoBehaviour
     private int maxChilds;
     public GameObject spawningBed;
     public ToddlerTulostin spawner;
+    private System.Random random;
 
     public int getChildCount()
     {
@@ -33,7 +34,6 @@ public class ChildMachine : MonoBehaviour
 
     public LostChild getRandomLostChild()
     {
-        System.Random random = new System.Random();
         Array sizeValues = Enum.GetValues(typeof(LostChild.Size));
         Array hatValues = Enum.GetValues(typeof(LostChild.Hat));
         Array colorValues = Enum.GetValues(typeof(LostChild.Color));
@@ -77,7 +77,12 @@ public class ChildMachine : MonoBehaviour
 
     void Start()
     {
+        random = new System.Random();
         // Debug.Log(spawningBed.transform.position);
-        // this.spawnLostChild();
+        this.spawnLostChild();
+        this.spawnLostChild();
+        this.spawnLostChild();
+        this.spawnLostChild();
+        this.spawnLostChild();
     }
 }

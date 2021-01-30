@@ -12,6 +12,7 @@ public class PlayerGrab : MonoBehaviour
     public Transform grabPoint;
     public float grabRadius;
     public float throwForce;
+    public string parentTag;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +61,8 @@ public class PlayerGrab : MonoBehaviour
         {
             if (collider.TryGetComponent<Grabbable>(out var component))
             {
-                component.grab();
+                var playerInfo = transform.GetComponent<PlayerInfo>();
+                component.grab(playerInfo.playerName);
                 isCarrying = true;
                 heldItem = collider.gameObject;
                 return;
@@ -68,12 +70,40 @@ public class PlayerGrab : MonoBehaviour
         }
     }
 
+    private void Yeeeeet(GameObject child, float direction)
+    {
+        var body = child.GetComponent<Rigidbody>();
+        body.AddForce(this.transform.forward * throwForce * (direction), ForceMode.Impulse);
+        var grabbable = child.GetComponent<Grabbable>();
+        grabbable.free();
+    }
+
     private void handleDrop()
     {
-        var body = heldItem.GetComponent<Rigidbody>();
-        body.AddForce(this.transform.forward * throwForce, ForceMode.Impulse);
-        var grabbable = heldItem.GetComponent<Grabbable>();
-        grabbable.free();
+        var colliders = Physics.OverlapSphere(grabPoint.position, grabRadius);
+        foreach (var collider in colliders)
+        {
+            if (collider.tag == parentTag)
+            {
+                var component = collider.GetComponent<MiserableParent>();
+                var childWasApproved = component.offerChild(heldItem.GetComponent<ToddlerInfo>().toddlerInfo);
+
+                Debug.Log("childWasApproved");
+                Debug.Log(childWasApproved);
+                if (childWasApproved) {
+                    Destroy(heldItem);
+                } else {
+                    this.Yeeeeet(heldItem, -1);
+                }
+                
+                heldItem = null;
+                isCarrying = false;
+
+                return;
+            }
+        }
+
+        this.Yeeeeet(heldItem, 1);
 
         isCarrying = false;
         heldItem = null;
