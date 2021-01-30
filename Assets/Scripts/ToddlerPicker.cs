@@ -14,7 +14,7 @@ public class ToddlerPicker : MonoBehaviour
     public GameObject teddyBear;
     public GameObject gun;
     public GameObject donut;
-    public Color GetColor(LostChild.Color color)
+    public Color GetColor(LostChild.Color? color)
     {
         switch (color)
         {
@@ -30,7 +30,7 @@ public class ToddlerPicker : MonoBehaviour
         return Color.black;
     }
 
-    public float GetSize(LostChild.Size size)
+    public float GetSize(LostChild.Size? size)
     {
         switch (size)
         {
@@ -44,7 +44,7 @@ public class ToddlerPicker : MonoBehaviour
         return 1f;
     }
 
-    public GameObject GetHat(LostChild.Hat hat)
+    public GameObject GetHat(LostChild.Hat? hat)
     {
         switch (hat)
         {
@@ -62,7 +62,7 @@ public class ToddlerPicker : MonoBehaviour
         return topHat;
     }
 
-    public GameObject GetItem(LostChild.StolenItem item)
+    public GameObject GetItem(LostChild.StolenItem? item)
     {
         switch (item)
         {

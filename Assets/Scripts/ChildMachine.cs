@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
-using UnityEngine.Serialization;
 
 public class ChildMachine : MonoBehaviour
 {
@@ -32,7 +31,7 @@ public class ChildMachine : MonoBehaviour
         maxChilds = newMaxChilds;
     }
 
-    private LostChild getRandomLostChild()
+    public LostChild getRandomLostChild()
     {
         System.Random random = new System.Random();
         Array sizeValues = Enum.GetValues(typeof(LostChild.Size));
