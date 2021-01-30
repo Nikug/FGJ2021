@@ -5,7 +5,7 @@ using TMPro;
 
 public class ScoresController : MonoBehaviour
 {
-    public static TextMeshPro statusText;
+    public TextMeshPro statusText;
     // Start is called before the first frame update
 
     void Start()
@@ -13,7 +13,7 @@ public class ScoresController : MonoBehaviour
         
     }
 
-    public static IEnumerator showStatusText (int forSeconds) {
+    public IEnumerator showStatusText (int forSeconds) {
 
         /* getPlayerScore() */
         int playerScore = 1;
@@ -28,12 +28,12 @@ public class ScoresController : MonoBehaviour
 
     }
 
-    private static void removeStatusText () {
+    private void removeStatusText () {
         statusText.enabled = false;
         statusText.text = "";
     }
 
-    private static void setStatusText (string textToShow) {
+    private void setStatusText (string textToShow) {
         statusText.text = textToShow;
         statusText.enabled = false;
         
