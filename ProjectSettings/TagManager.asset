@@ -9,6 +9,8 @@ TagManager:
   - Grabbable
   - SpawnPoint
   - Parent
+  - PlayButton
+  - PlayerSpawnPoint
   layers:
   - Default
   - TransparentFX
