@@ -93,7 +93,7 @@ public class ChildMachine : MonoBehaviour
     void Start()
     {
         random = new System.Random();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 40; i++) {
             spawnLostChild();
         }
     }

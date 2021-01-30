@@ -127,6 +127,7 @@ public class MiserableParent : MonoBehaviour {
 
         if (matchingAttributes >= scoreNeededToPass) {
             Debug.Log("passed");
+            changeChild();
             return true;
         }
 
