@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 3025360762339488757}
   - component: {fileID: 7271398052043988885}
   - component: {fileID: 937190561721652089}
-  - component: {fileID: 2103900222161525151}
+  - component: {fileID: 4009051720007309122}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -311,8 +311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Pekka
---- !u!136 &2103900222161525151
-CapsuleCollider:
+--- !u!65 &4009051720007309122
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -321,10 +321,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.75
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8549735727900599323
 GameObject:
   m_ObjectHideFlags: 0
