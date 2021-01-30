@@ -16,12 +16,14 @@ public class PlayerMovement : MonoBehaviour
     public string vertical = "Vertical";
     public string extrabutton;
     private string playerName;
+    private Rigidbody rb;
     void Start()
     {
         if (controller is null)
         {
             controller = gameObject.AddComponent<CharacterController>();
         }
+        rb = GetComponent<Rigidbody>();
         playerName = GetComponent<PlayerInfo>().playerName;
     }
 
@@ -29,19 +31,27 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         /* Movement */
-        Move();
+        // Move();
         /* Fix to Player Y Position */
-        fixYPosition();
+
+    }
+
+    void FixedUpdate()
+    {
+        Move();
     }
 
     void Move()
     {
         Vector3 move = new Vector3(Input.GetAxis(horizontal), 0, Input.GetAxis(vertical) * -1);
-        controller.Move(Vector3.Normalize(move) * Time.deltaTime * playerSpeed);
+        // controller.Move(Vector3.Normalize(move) * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
         {
-            gameObject.transform.forward = move;
+            // gameObject.transform.forward = move;
+            rb.velocity = Vector3.Normalize(move) * playerSpeed;
+            rb.rotation = Quaternion.LookRotation(move, Vector3.up);
+            // transform.Translate(Vector3.Normalize(move) * Time.deltaTime * playerSpeed);
         }
     }
 

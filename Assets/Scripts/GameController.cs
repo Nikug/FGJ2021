@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     public GameState gameState = GameState.Game;
     private List<Transform> spawnPoints;
     public string spawnPointTag = "PlayerSpawnpoint";
+    public bool debugSpawnPlayers = false;
     void Awake()
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("GameController");
@@ -37,6 +38,11 @@ public class GameController : MonoBehaviour
     {
         players = new List<GameObject>();
         playerNames = new List<string>();
+        if (debugSpawnPlayers)
+        {
+            playerNames.Add("1");
+            spawnPlayers();
+        }
     }
 
     // Update is called once per frame

@@ -90,13 +90,16 @@ public class PlayerGrab : MonoBehaviour
 
                 Debug.Log("childWasApproved");
                 Debug.Log(childWasApproved);
-                if (childWasApproved) {
+                if (childWasApproved)
+                {
                     Destroy(heldItem);
                     ChildMachine.deleteChild();
-                } else {
+                }
+                else
+                {
                     this.Yeeeeet(heldItem, -1);
                 }
-                
+
                 heldItem = null;
                 isCarrying = false;
 
