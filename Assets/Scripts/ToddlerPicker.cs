@@ -35,11 +35,11 @@ public class ToddlerPicker : MonoBehaviour
         switch (size)
         {
             case LostChild.Size.Thin:
-                return 0.7f;
+                return 0.5f;
             case LostChild.Size.Normal:
                 return 1f;
             case LostChild.Size.ThiccOhhLordHeComing:
-                return 1.5f;
+                return 2f;
         }
         return 1f;
     }

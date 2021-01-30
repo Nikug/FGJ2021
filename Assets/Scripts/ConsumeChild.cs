@@ -26,7 +26,7 @@ public class ConsumeChild : MonoBehaviour
         t -= Time.deltaTime;
         if (t < 0f)
         {
-            // Call decrease child count
+            ChildMachine.deleteChild();
             Destroy(gameObject);
         }
         Destroy(gameObject.GetComponent<Rigidbody>());
