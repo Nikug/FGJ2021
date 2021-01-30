@@ -17,6 +17,7 @@ public class ToddlerTulostin : MonoBehaviour
         var position = freeSpawnPoints[index].transform.position;
 
         var newToddler = Instantiate(toddler, position, new Quaternion());
+        newToddler.GetComponent<ToddlerInfo>().toddlerInfo = properties;
         setToddlerProperties(newToddler, properties);
     }
 
