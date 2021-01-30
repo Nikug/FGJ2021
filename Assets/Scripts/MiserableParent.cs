@@ -88,7 +88,6 @@ public class MiserableParent : MonoBehaviour {
         child = this.getRandomLostChildWithNAttributes(numberOfAttributes);
         pointsToGive = numberOfAttributes * POINTS_PER_ATTRIBUTE;
 
-        this.offerChild(this.getRandomLostChildWithNAttributes(4));
     }
 
     private LostChild getChild() {
