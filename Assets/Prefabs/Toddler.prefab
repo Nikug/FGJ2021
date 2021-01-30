@@ -382,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabbed: 0
   lastToucher: 
+  floorTag: Floor
 --- !u!54 &-4604686910460145364
 Rigidbody:
   m_ObjectHideFlags: 0

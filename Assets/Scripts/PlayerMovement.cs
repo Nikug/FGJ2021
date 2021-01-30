@@ -17,14 +17,24 @@ public class PlayerMovement : MonoBehaviour
     public string extrabutton;
     private string playerName;
     private Rigidbody rb;
+    public ParticleSystem ps;
+    public string floorTag;
+    private ParticleSystem.EmissionModule emission;
+    private Transform floor;
     void Start()
     {
         if (controller is null)
         {
-            controller = gameObject.AddComponent<CharacterController>();
+            // controller = gameObject.AddComponent<CharacterController>();
         }
         rb = GetComponent<Rigidbody>();
         playerName = GetComponent<PlayerInfo>().playerName;
+        emission = ps.emission;
+        ps.Play();
+        emission.enabled = false;
+
+        floor = GameObject.FindGameObjectWithTag(floorTag).transform;
+        transform.position = new Vector3(transform.position.x, floor.position.y + floor.localScale.y / 2, transform.position.z);
     }
 
     // Update is called once per frame
@@ -38,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (transform.position.y != floor.position.y)
+        {
+            transform.position = new Vector3(transform.position.x, floor.position.y + floor.localScale.y / 2, transform.position.z);
+        }
         Move();
     }
 
@@ -52,6 +66,11 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector3.Normalize(move) * playerSpeed;
             rb.rotation = Quaternion.LookRotation(move, Vector3.up);
             // transform.Translate(Vector3.Normalize(move) * Time.deltaTime * playerSpeed);
+            emission.enabled = true;
+        }
+        else
+        {
+            emission.enabled = false;
         }
     }
 

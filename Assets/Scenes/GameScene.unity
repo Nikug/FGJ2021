@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 3203090}
   m_Layer: 0
   m_Name: MiddleWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -211,9 +211,10 @@ Transform:
   m_LocalPosition: {x: 2.59, y: 0, z: -9}
   m_LocalScale: {x: 15, y: 1.5, z: 1}
   m_Children:
-  - {fileID: 222465108}
-  - {fileID: 2021444307}
   - {fileID: 1622879692}
+  - {fileID: 2021444307}
+  - {fileID: 1568392103}
+  - {fileID: 222465108}
   m_Father: {fileID: 1373390921}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -403,7 +404,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 190605379}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!102 &154494022
 TextMesh:
@@ -515,20 +516,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!4 &190605379 stripped
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26a633646f2d05b40aefe8fbd223b6d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 4
-  enableAgentOnTouch: 0
-  floorTag: 
---- !u!4 &126849670 stripped
+--- !u!4 &190605379
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7722245107603120899, guid: 84f81aa46d3c42045b97ee582ed668d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1476281610}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382682880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 154494021}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &203361415
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +545,7 @@ GameObject:
   - component: {fileID: 203361416}
   m_Layer: 0
   m_Name: TopWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -642,7 +644,7 @@ GameObject:
   - component: {fileID: 222465109}
   m_Layer: 0
   m_Name: InfoDesk
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -659,7 +661,7 @@ Transform:
   m_LocalScale: {x: 0.48002517, y: 0.33333334, z: 1}
   m_Children: []
   m_Father: {fileID: 3203093}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &222465109
 BoxCollider:
@@ -735,7 +737,7 @@ GameObject:
   - component: {fileID: 227995099}
   m_Layer: 0
   m_Name: PillowseaShute (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -828,7 +830,7 @@ GameObject:
   - component: {fileID: 248345693}
   m_Layer: 0
   m_Name: PillowseaShute (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -1158,6 +1160,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 952197008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &382682880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 190605379}
+  m_Layer: 0
+  m_Name: Recovery GameObject (190605379)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &401461061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1628,7 +1646,7 @@ PrefabInstance:
     - target: {fileID: 7722245107603120899, guid: 84f81aa46d3c42045b97ee582ed668d1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7722245107603120899, guid: 84f81aa46d3c42045b97ee582ed668d1,
         type: 3}
@@ -2121,7 +2139,7 @@ Transform:
   m_GameObject: {fileID: 502355394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.37, y: -1, z: -14}
-  m_LocalScale: {x: 25, y: 1.0000001, z: 22}
+  m_LocalScale: {x: 25, y: 1, z: 22}
   m_Children: []
   m_Father: {fileID: 1373390921}
   m_RootOrder: 0
@@ -2486,7 +2504,7 @@ PrefabInstance:
     - target: {fileID: 8244555223236991160, guid: 0cf66fadaedac9a48a2eb2fef0da3893,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8244555223236991160, guid: 0cf66fadaedac9a48a2eb2fef0da3893,
         type: 3}
@@ -2844,7 +2862,7 @@ Transform:
   - {fileID: 334967847}
   - {fileID: 1097700650}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &895780272
 PrefabInstance:
@@ -3152,7 +3170,7 @@ Transform:
   - {fileID: 113092488}
   - {fileID: 612944450}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1021162135 stripped
 Transform:
@@ -3560,7 +3578,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
 --- !u!1001 &1168978010
 PrefabInstance:
@@ -3831,7 +3849,7 @@ GameObject:
   - component: {fileID: 1311335791}
   m_Layer: 0
   m_Name: RightWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -4091,7 +4109,7 @@ Transform:
   - {fileID: 1497603905}
   - {fileID: 1188407246}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1383657800
 GameObject:
@@ -4107,7 +4125,7 @@ GameObject:
   - component: {fileID: 1383657801}
   m_Layer: 0
   m_Name: LeftWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -4258,7 +4276,7 @@ GameObject:
   - component: {fileID: 1401364268}
   m_Layer: 0
   m_Name: GarbageAlleyWall2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -4896,7 +4914,7 @@ GameObject:
   - component: {fileID: 1568392104}
   m_Layer: 0
   m_Name: GarbageAlleyWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -4911,12 +4929,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.4, y: 0, z: 1.5}
   m_LocalScale: {x: 0.025, y: 0.75, z: 2}
-  m_Children:
-  - {fileID: 1622879692}
-  - {fileID: 1401364267}
-  - {fileID: 2135190339}
+  m_Children: []
   m_Father: {fileID: 3203093}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1568392104
 BoxCollider:
@@ -5071,7 +5086,7 @@ Transform:
   - {fileID: 2097993741}
   - {fileID: 285490470}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1607051767
 PrefabInstance:
@@ -5156,7 +5171,7 @@ GameObject:
   - component: {fileID: 1622879693}
   m_Layer: 0
   m_Name: GarbageAlleyWall1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -5175,7 +5190,7 @@ Transform:
   - {fileID: 1401364267}
   - {fileID: 2135190339}
   m_Father: {fileID: 3203093}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1622879693
 BoxCollider:
@@ -5263,7 +5278,7 @@ GameObject:
   - component: {fileID: 1810177415}
   m_Layer: 0
   m_Name: BottomWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -5779,7 +5794,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021444306
 GameObject:
@@ -5795,7 +5810,7 @@ GameObject:
   - component: {fileID: 2021444308}
   m_Layer: 0
   m_Name: PillowseaShute
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -6044,7 +6059,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135190338
 GameObject:
@@ -6060,7 +6075,7 @@ GameObject:
   - component: {fileID: 2135190340}
   m_Layer: 0
   m_Name: GarbageAlleyWall4
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
