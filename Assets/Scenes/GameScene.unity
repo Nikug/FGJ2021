@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 222465111}
   - component: {fileID: 222465110}
   - component: {fileID: 222465109}
+  - component: {fileID: 222465112}
   m_Layer: 0
   m_Name: InfoDesk
   m_TagString: Untagged
@@ -400,6 +401,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222465107}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &222465112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222465107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0a8d95f8391d74d949b794b4e1aff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawningBed: {fileID: 222465107}
 --- !u!1 &227995097
 GameObject:
   m_ObjectHideFlags: 0

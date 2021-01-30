@@ -3,8 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class ChildMachine : MonoBehaviour {
+    private int childCount;
+    private int maxChilds;
+    public GameObject spawningBed;
+
+    public int getChildCount() {
+        return childCount;
+    }
+
+    public int getMaxChilds() {
+        return maxChilds;
+    }
+
+    private void setChildCount(int newChildCount) {
+        childCount = newChildCount;
+    }
+
+    private void setMaxChilds(int newMaxChilds) {
+        maxChilds = newMaxChilds;
+    }
+
     private LostChild getRandomLostChild() {
         System.Random random = new System.Random();
         Array sizeValues = Enum.GetValues(typeof(LostChild.Size));
@@ -21,5 +42,30 @@ public class ChildMachine : MonoBehaviour {
     }
     private LostChild getSpesificLostChild(LostChild.Size pSize, LostChild.Hat pHat, LostChild.Color pColor, LostChild.StolenItem pStolenItem) {
         return new LostChild(pSize, pHat, pColor, pStolenItem);
+    }
+
+    public ChildMachine(int pMaxChilds) {
+        childCount = 0;
+        maxChilds = pMaxChilds;
+    }
+
+    public void decreaseChildCount() {
+        this.setChildCount(childCount-1);
+    }
+
+    private void spawnLostChild() {
+        LostChild child = this.getRandomLostChild();
+        /*
+        Debug.Log(child.getSize());
+        Debug.Log(child.getStolenItem());
+        Debug.Log(child.getHat());
+        Debug.Log(child.getColor());
+        */
+        
+    }
+
+    void Start() {
+        Debug.Log(spawningBed.transform.position);
+        this.spawnLostChild();
     }
 }
