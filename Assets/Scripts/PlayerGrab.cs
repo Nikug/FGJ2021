@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerGrab : MonoBehaviour
 {
+    public string playerName;
     public bool debug = false;
     public string grabButton;
     public bool canGrab = false;
@@ -86,7 +87,7 @@ public class PlayerGrab : MonoBehaviour
             if (collider.tag == parentTag)
             {
                 var component = collider.GetComponent<MiserableParent>();
-                var childWasApproved = component.offerChild(heldItem.GetComponent<ToddlerInfo>().toddlerInfo);
+                var childWasApproved = component.offerChild(heldItem.GetComponent<ToddlerInfo>().toddlerInfo, playerName);
 
                 Debug.Log("childWasApproved");
                 Debug.Log(childWasApproved);

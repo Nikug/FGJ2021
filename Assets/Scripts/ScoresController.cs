@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class ScoresController : MonoBehaviour
 {
@@ -10,22 +11,28 @@ public class ScoresController : MonoBehaviour
 
     void Start()
     {
-        
     }
 
-    public void showStatusText (string playerName) {
+    public void updateStatusText (string playerName, int pointsToAdd) {
+        int playerScore = 0;
 
-        /* getPlayerScore() */
-        int playerScore = 1;
-        /* getPlayerName() */
-        string textToShow = playerName + " now has " + playerScore + " points!";
-        setStatusText(textToShow);
-    }
-
-    private void setStatusText (string textToShow) {
-        //statusText.text = textToShow;
-        //statusText.enabled = false;
-        
-
+        switch (playerName) {
+            case "Player 1":
+                playerScore = Int32.Parse(statusText[0].text.Substring(9));
+                statusText[0].text = "Player 1: " + (playerScore + pointsToAdd).ToString();
+                break;
+            case "Player 2":
+                playerScore = Int32.Parse(statusText[1].text.Substring(9));
+                statusText[1].text = "Player 2: " + (playerScore + pointsToAdd).ToString();
+                break;
+            case "Player 3":
+                playerScore = Int32.Parse(statusText[2].text.Substring(9));
+                statusText[2].text = "Player 3: " + (playerScore + pointsToAdd).ToString();
+                break;
+            case "Player 4":
+                playerScore = Int32.Parse(statusText[3].text.Substring(9));
+                statusText[3].text = "Player 4: " + (playerScore + pointsToAdd).ToString();
+                break;
+        }
     }
 }
