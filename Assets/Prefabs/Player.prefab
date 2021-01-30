@@ -125,7 +125,7 @@ GameObject:
   m_Name: PlayerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2975098631557118086
@@ -260,6 +260,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &8549735729104990622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584855982122881966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d229ce2070363c94c98c697343842a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerYPosition: 0
+  playerBase: {fileID: 4584855982122881966}
+  playerSpeed: 6
+  horizontal: Horizontal
+  vertical: Vertical
+  extrabutton: 
 --- !u!114 &3025360762339488757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,12 +291,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  grabButton: 
-  canGrab: 0
+  grabButton: Submit
+  canGrab: 1
   isCarrying: 0
   heldItem: {fileID: 0}
   grabPoint: {fileID: 3924062659299440401}
-  grabRadius: 0
+  grabRadius: 1
   throwForce: 0
   parentTag: Parent
 --- !u!114 &7271398052043988885
