@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         if(scene.name != "GameScene") {
             SceneManager.LoadScene("GameScene");
+            bool a = addPlayer(3);
         }
 
         // Spawn players
@@ -73,19 +74,26 @@ public class GameController : MonoBehaviour
 
     public bool addPlayer(int index) {
         
-        /* Check if we can make more players etc .. */
-        if (index > maxPlayers) {
-            return false;
+        GameObject newPlayer;
+        /* Temporary make 4 players */
+        for (int i = 0 ; i<maxPlayers; i++) {
+            newPlayer = Instantiate(player);
+            newPlayer.name = "Player " + (index+1);
+            players[i] = newPlayer;
         }
-
-        /* Instantiate a new player */
-        GameObject newPlayer = Instantiate(player);
-
-        /* Change player properties */
-        newPlayer.name = "Player " + (index+1);
-
-        /* Add player */
-        players[index] = newPlayer;
         return true;
+        /*
+        /* Check if we can make more players etc .. */
+        //if (index > maxPlayers) {
+        //    return false;
+        //}
+        /* Instantiate a new player */
+        //GameObject newPlayer = Instantiate(player);
+        /* Change player properties */
+        //newPlayer.name = "Player " + (index+1);
+        /* Add player */
+        //players[index] = newPlayer;
+        //return true;
+        
     }
 }
