@@ -6,33 +6,51 @@ using System.Linq;
 
 public class ChildMachine : MonoBehaviour
 {
+    private static ChildMachine _instance = null;
+
     private int childCount;
     private int maxChilds;
     public GameObject spawningBed;
     public ToddlerTulostin spawner;
     private System.Random random;
 
-    public int getChildCount()
-    {
-        return childCount;
+    public static ChildMachine Instance {
+        get {
+            return _instance;
+        }
     }
 
-    public int getMaxChilds()
+    private void Awake()
     {
-        return maxChilds;
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
     }
 
-    private void setChildCount(int newChildCount)
+    private static int getChildCount()
     {
-        childCount = newChildCount;
+        return Instance.childCount;
     }
 
-    private void setMaxChilds(int newMaxChilds)
+    private static int getMaxChilds()
     {
-        maxChilds = newMaxChilds;
+        return Instance.maxChilds;
     }
 
-    public LostChild getRandomLostChild()
+    private static void setChildCount(int newChildCount)
+    {
+        Instance.childCount = newChildCount;
+    }
+
+    private static void setMaxChilds(int newMaxChilds)
+    {
+        Instance.maxChilds = newMaxChilds;
+    }
+
+    private static LostChild getRandomLostChild()
     {
         Array sizeValues = Enum.GetValues(typeof(LostChild.Size));
         Array hatValues = Enum.GetValues(typeof(LostChild.Hat));
@@ -40,49 +58,43 @@ public class ChildMachine : MonoBehaviour
         Array stolenItemValues = Enum.GetValues(typeof(LostChild.StolenItem));
 
         return new LostChild(
-            (LostChild.Size)sizeValues.GetValue(random.Next(sizeValues.Length)),
-            (LostChild.Hat)hatValues.GetValue(random.Next(hatValues.Length)),
-            (LostChild.Color)colorValues.GetValue(random.Next(colorValues.Length)),
-            (LostChild.StolenItem)stolenItemValues.GetValue(random.Next(stolenItemValues.Length))
+            (LostChild.Size)sizeValues.GetValue(Instance.random.Next(sizeValues.Length)),
+            (LostChild.Hat)hatValues.GetValue(Instance.random.Next(hatValues.Length)),
+            (LostChild.Color)colorValues.GetValue(Instance.random.Next(colorValues.Length)),
+            (LostChild.StolenItem)stolenItemValues.GetValue(Instance.random.Next(stolenItemValues.Length))
         );
     }
-    private LostChild getSpesificLostChild(LostChild.Size pSize, LostChild.Hat pHat, LostChild.Color pColor, LostChild.StolenItem pStolenItem)
+
+    private static LostChild getSpesificLostChild(LostChild.Size pSize, LostChild.Hat pHat, LostChild.Color pColor, LostChild.StolenItem pStolenItem)
     {
         return new LostChild(pSize, pHat, pColor, pStolenItem);
     }
 
-    public ChildMachine(int pMaxChilds)
+    public static void deleteChild()
     {
-        childCount = 0;
-        maxChilds = pMaxChilds;
+        setChildCount(Instance.childCount - 1);
+        spawnLostChild();
     }
 
-    public void decreaseChildCount()
+    private static void spawnLostChild()
     {
-        this.setChildCount(childCount - 1);
-    }
-
-    private void spawnLostChild()
-    {
-        LostChild child = this.getRandomLostChild();
-        spawner.spawnChild(child);
+        LostChild child = getRandomLostChild();
+        Instance.spawner.spawnChild(child);
         /*
         Debug.Log(child.getSize());
         Debug.Log(child.getStolenItem());
         Debug.Log(child.getHat());
         Debug.Log(child.getColor());
         */
-
+        
+        Instance.childCount = Instance.childCount + 1;
     }
 
     void Start()
     {
         random = new System.Random();
-        // Debug.Log(spawningBed.transform.position);
-        this.spawnLostChild();
-        this.spawnLostChild();
-        this.spawnLostChild();
-        this.spawnLostChild();
-        this.spawnLostChild();
+        for (int i = 0; i < 2; i++) {
+            spawnLostChild();
+        }
     }
 }
