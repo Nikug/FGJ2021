@@ -33,10 +33,10 @@ public class LostChild {
         Donut
     }
 
-    private Size size;
-    private Hat hat;
-    private Color color;
-    private StolenItem stolenItem;
+    private Size? size;
+    private Hat? hat;
+    private Color? color;
+    private StolenItem? stolenItem;
 
     public LostChild(Size pSize, Hat pHat, Color pColor, StolenItem pStolenItem) {
         size = pSize;
@@ -45,19 +45,35 @@ public class LostChild {
         stolenItem = pStolenItem;
     }
 
-    public Size getSize() {
+    public Size? getSize() {
         return size;
     }
 
-    public Hat getHat() {
+    public Hat? getHat() {
         return hat;
     }
 
-    public Color getColor() {
+    public Color? getColor() {
         return color;
     }
 
-    public StolenItem getStolenItem() {
+    public StolenItem? getStolenItem() {
         return stolenItem;
+    }
+
+    public void setSize(Size? pSize) {
+        size = pSize;
+    }
+
+    public void setHat(Hat? pHat) {
+        hat = pHat;
+    }
+
+    public void setColor(Color? pColor) {
+        color = pColor;
+    }
+
+    public void setStolenItem(StolenItem? pStolenItem) {
+        stolenItem = pStolenItem;
     }
 }
