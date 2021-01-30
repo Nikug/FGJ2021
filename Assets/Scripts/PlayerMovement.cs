@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     /* Player Movement */
     private CharacterController controller;
     public float playerSpeed = 6.0f;
-    
+
 
     /* Player Inputs */
     public string horizontal = "Horizontal";
@@ -30,18 +30,21 @@ public class PlayerMovement : MonoBehaviour
         fixYPosition();
     }
 
-    void Move() {
+    void Move()
+    {
         Vector3 move = new Vector3(Input.GetAxis(horizontal), 0, Input.GetAxis(vertical));
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        controller.Move(Vector3.Normalize(move) * Time.deltaTime * playerSpeed);
+
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
         }
     }
 
-    void fixYPosition() {
-        playerBase.transform.position = new Vector3 (playerBase.transform.position.x,
-                                                    playerYPosition, 
+    void fixYPosition()
+    {
+        playerBase.transform.position = new Vector3(playerBase.transform.position.x,
+                                                    playerYPosition,
                                                     playerBase.transform.position.z);
     }
 }
