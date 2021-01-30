@@ -11,7 +11,11 @@ public class GameController : MonoBehaviour
         GameOver
 
     }
-    public int someNumber = 0;
+    public int maxPlayers = 4;
+
+    public GameObject player;
+    private int playerAmount = 0;
+    private List<GameObject> players;
 
     public GameState gameState = GameState.Game; 
     void Awake()
@@ -43,9 +47,12 @@ public class GameController : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         if(scene.name != "GameScene") {
             SceneManager.LoadScene("GameScene");
+            bool a = addPlayer(3);
         }
 
         // Spawn players
+
+
         // Set options / scores / etc
         // Other initialization
     }
@@ -63,5 +70,30 @@ public class GameController : MonoBehaviour
         if(scene.name != "MainMenu") {
             SceneManager.LoadScene("MainMenu");
         }
+    }
+
+    public bool addPlayer(int index) {
+        
+        GameObject newPlayer;
+        /* Temporary make 4 players */
+        for (int i = 0 ; i<maxPlayers; i++) {
+            newPlayer = Instantiate(player);
+            newPlayer.name = "Player " + (index+1);
+            players[i] = newPlayer;
+        }
+        return true;
+        /*
+        /* Check if we can make more players etc .. */
+        //if (index > maxPlayers) {
+        //    return false;
+        //}
+        /* Instantiate a new player */
+        //GameObject newPlayer = Instantiate(player);
+        /* Change player properties */
+        //newPlayer.name = "Player " + (index+1);
+        /* Add player */
+        //players[index] = newPlayer;
+        //return true;
+        
     }
 }
