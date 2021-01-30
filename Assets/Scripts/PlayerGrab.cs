@@ -17,7 +17,7 @@ public class PlayerGrab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerName = GetComponent<PlayerInfo>().playerName;
     }
 
     // Update is called once per frame

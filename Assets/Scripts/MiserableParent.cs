@@ -5,7 +5,8 @@ using System;
 using System.Linq;
 using TMPro;
 
-public class MiserableParent : MonoBehaviour {
+public class MiserableParent : MonoBehaviour
+{
     private LostChild child = null;
     private int numberOfAttributes = 0;
     private int pointsToGive = 0;
@@ -14,16 +15,22 @@ public class MiserableParent : MonoBehaviour {
     private System.Random random;
     public GameObject scoreController;
 
-    void Start() {
+    void Start()
+    {
         random = new System.Random((int)DateTime.Now.Ticks);
         this.changeChild();
+        //scoreController.GetComponent<ScoresController>().updateStatusText("1", 50);
     }
 
-    private void CreateInfo(LostChild childToFind) {
+    private void CreateInfo(LostChild childToFind)
+    {
         string childSize;
-        if (childToFind.getSize().ToString() == "ThiccOhhLordHeComing") {
+        if (childToFind.getSize().ToString() == "ThiccOhhLordHeComing")
+        {
             childSize = "Thicc";
-        } else {
+        }
+        else
+        {
             childSize = childToFind.getSize().ToString();
         }
         var infoText = childToFind.getColor() + "\n" + childSize + "\n" + childToFind.getHat() + "\n" + childToFind.getStolenItem();
@@ -32,11 +39,15 @@ public class MiserableParent : MonoBehaviour {
 
     }
 
-    private LostChild getRandomLostChildWithNAttributes(int pNumberOfAttributes) {
+    private LostChild getRandomLostChildWithNAttributes(int pNumberOfAttributes)
+    {
         int numberOfAttributes = pNumberOfAttributes;
-        if (numberOfAttributes < 1) {
+        if (numberOfAttributes < 1)
+        {
             numberOfAttributes = 1;
-        } else if (numberOfAttributes > 4) {
+        }
+        else if (numberOfAttributes > 4)
+        {
             numberOfAttributes = 4;
         }
 
@@ -52,34 +63,40 @@ public class MiserableParent : MonoBehaviour {
             (LostChild.StolenItem)stolenItemValues.GetValue(random.Next(stolenItemValues.Length))
         );
 
-        for (int i = 0; i < 4 - numberOfAttributes; i++) {
+        for (int i = 0; i < 4 - numberOfAttributes; i++)
+        {
             bool fieldRemoved = false;
 
-            while(fieldRemoved != true) {
+            while (fieldRemoved != true)
+            {
                 int randomInt = random.Next(0, 4);
 
                 switch (randomInt)
                 {
                     case 0:
-                        if (randomChild.getSize() != null) {
+                        if (randomChild.getSize() != null)
+                        {
                             randomChild.setSize(null);
                             fieldRemoved = true;
                         }
                         break;
                     case 1:
-                        if (randomChild.getHat() != null) {
+                        if (randomChild.getHat() != null)
+                        {
                             randomChild.setHat(null);
                             fieldRemoved = true;
                         }
                         break;
                     case 2:
-                        if (randomChild.getColor() != null) {
+                        if (randomChild.getColor() != null)
+                        {
                             randomChild.setColor(null);
                             fieldRemoved = true;
                         }
                         break;
                     case 3:
-                        if (randomChild.getStolenItem() != null) {
+                        if (randomChild.getStolenItem() != null)
+                        {
                             randomChild.setStolenItem(null);
                             fieldRemoved = true;
                         }
@@ -87,50 +104,60 @@ public class MiserableParent : MonoBehaviour {
                     default:
                         break;
                 }
-            }            
+            }
         }
 
-   
+
+        /*
         Debug.Log(randomChild.getSize());
         Debug.Log(randomChild.getStolenItem());
         Debug.Log(randomChild.getHat());
         Debug.Log(randomChild.getColor());
-    
+        */
+
 
         return randomChild;
     }
 
-    private void changeChild() {
+    private void changeChild()
+    {
         numberOfAttributes = random.Next(1, 5);
         child = this.getRandomLostChildWithNAttributes(numberOfAttributes);
         pointsToGive = numberOfAttributes * POINTS_PER_ATTRIBUTE;
         CreateInfo(getChild());
     }
 
-    private LostChild getChild() {
+    private LostChild getChild()
+    {
         return child;
     }
 
-    private int getPoints() {
+    private int getPoints()
+    {
         return pointsToGive;
     }
 
-    public bool offerChild(LostChild offeredChild, string playerName) {
+    public bool offerChild(LostChild offeredChild, string playerName)
+    {
         int matchingAttributes = 0;
 
-        if (child.getSize() != null && child.getSize() == offeredChild.getSize()) {
+        if (child.getSize() != null && child.getSize() == offeredChild.getSize())
+        {
             matchingAttributes = matchingAttributes + 1;
         }
-        
-        if (child.getHat() != null && child.getHat() == offeredChild.getHat()) {
+
+        if (child.getHat() != null && child.getHat() == offeredChild.getHat())
+        {
             matchingAttributes = matchingAttributes + 1;
         }
-        
-        if (child.getColor() != null && child.getColor() == offeredChild.getColor()) {
+
+        if (child.getColor() != null && child.getColor() == offeredChild.getColor())
+        {
             matchingAttributes = matchingAttributes + 1;
         }
-        
-        if (child.getStolenItem() != null && child.getStolenItem() == offeredChild.getStolenItem()) {
+
+        if (child.getStolenItem() != null && child.getStolenItem() == offeredChild.getStolenItem())
+        {
             matchingAttributes = matchingAttributes + 1;
         }
 
@@ -141,7 +168,8 @@ public class MiserableParent : MonoBehaviour {
         Debug.Log("scoreNeededToPass");
         Debug.Log(scoreNeededToPass);
 
-        if (matchingAttributes >= scoreNeededToPass) {
+        if (matchingAttributes >= scoreNeededToPass)
+        {
             Debug.Log("passed");
             changeChild();
             scoreController.GetComponent<ScoresController>().updateStatusText(playerName, pointsToGive);
