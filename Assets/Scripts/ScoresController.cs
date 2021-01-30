@@ -18,7 +18,6 @@ public class ScoresController : MonoBehaviour
         /* getPlayerScore() */
         int playerScore = 1;
         /* getPlayerName() */
-        string playerName = "Player 1";
         string textToShow = playerName + " now has " + playerScore + " points!";
         setStatusText(textToShow);
     }
