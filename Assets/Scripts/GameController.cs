@@ -49,13 +49,20 @@ public class GameController : MonoBehaviour
     void Update()
     {
         if (Input.GetButton("Start"))
-            if (players.Count > 0)
+            if (players.Count > 0 && gameState == GameState.MainMenu)
             {
                 {
                     StartGame();
                 }
-
             }
+
+        if (gameState == GameState.Game)
+        {
+            if (Input.GetButton("Start"))
+            {
+                // Open menu, pause game
+            }
+        }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -97,6 +104,7 @@ public class GameController : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name != "MainMenu")
         {
+            Debug.Log("Loading main menu");
             SceneManager.LoadScene("MainMenu");
         }
     }
