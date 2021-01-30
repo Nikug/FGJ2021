@@ -5,12 +5,14 @@ using UnityEngine;
 public class Grabbable : MonoBehaviour
 {
     public bool grabbed;
+    public string lastToucher;
 
-    public void grab() {
+    public void grab(string playerName) {
         var collider = GetComponent<CapsuleCollider>();
         collider.enabled = false;
         var agent = GetComponent<MoveTo>();
         agent.DisableAgent();
+        lastToucher = playerName;
     }
 
     public void free() {

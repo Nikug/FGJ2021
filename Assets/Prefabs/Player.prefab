@@ -198,7 +198,7 @@ BoxCollider:
   m_GameObject: {fileID: 2975098631557118080}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -212,12 +212,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6199473493152041632}
   - component: {fileID: 8549735729104990623}
-  - component: {fileID: 8549735729104990622}
   - component: {fileID: 3025360762339488757}
-  - component: {fileID: 2070361795}
+  - component: {fileID: 8549735728401905138}
+  - component: {fileID: 937190561721652089}
+  - component: {fileID: 2103900222161525151}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Grabbable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4584855982122881966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55ad6d6601128204991e05148e854f48, type: 3}
   m_Name: 
@@ -296,28 +297,53 @@ MonoBehaviour:
   grabPoint: {fileID: 3924062659299440401}
   grabRadius: 1
   throwForce: 0
---- !u!195 &2070361795
-NavMeshAgent:
+  parentTag: Parent
+--- !u!114 &8549735728401905138
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4584855982122881966}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27c0cefd0bb18c48b45c21eba84192f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerYPosition: 0
+  playerBase: {fileID: 2975098631557118080}
+  playerSpeed: 6
+  horizontal: Horizontal
+  vertical: Vertical
+  menubutton: Submit
+  playbutton: {fileID: 0}
+--- !u!114 &937190561721652089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584855982122881966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e84c819a17f4f345a09142086005d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: Pekka
+--- !u!136 &2103900222161525151
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584855982122881966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.75
   m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &8549735727900599323
 GameObject:
   m_ObjectHideFlags: 0
