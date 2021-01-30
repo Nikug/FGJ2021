@@ -1197,6 +1197,11 @@ PrefabInstance:
       propertyPath: grabRadius
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3025360762339488757, guid: d1c584627d0148b4f9accc6a76bb740a,
+        type: 3}
+      propertyPath: throwForce
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4584855982122881966, guid: d1c584627d0148b4f9accc6a76bb740a,
         type: 3}
       propertyPath: m_Name
