@@ -6,7 +6,7 @@ using TMPro;
 public class MenuInputListener : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    public GameController gameController;
     public List<TextMeshPro> playerStatusPrompts;
     //public List<string> playerAction1Buttons;
     public List<string> playerJoinKey;
@@ -38,7 +38,7 @@ public class MenuInputListener : MonoBehaviour
                     changeStatusText(int.Parse(name) - 1, name, true);
                 }
                 
-                /* spawnSucces = Spawner.spawn(index) */
+                gameController.addPlayer(name);
 
             }
         }
@@ -48,6 +48,7 @@ public class MenuInputListener : MonoBehaviour
                 string name = buttonKey.Substring(3, 1);
                 if(joinedPlayers.Contains(name)) {
                     joinedPlayers.Remove(name);
+                    gameController.removePlayer(name);
                     changeStatusText(int.Parse(name) - 1, name, false);
                 }
                 

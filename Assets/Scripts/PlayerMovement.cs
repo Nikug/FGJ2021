@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public string horizontal = "Horizontal";
     public string vertical = "Vertical";
     public string extrabutton;
+    private string playerName;
     void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
-
+        playerName = GetComponent<PlayerInfo>().playerName;
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        Vector3 move = new Vector3(Input.GetAxis(horizontal), 0, Input.GetAxis(vertical));
+        Vector3 move = new Vector3(Input.GetAxis(horizontal) * -1, 0, Input.GetAxis(vertical));
         controller.Move(Vector3.Normalize(move) * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
