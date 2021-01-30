@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Toddler
   - PlayButton
+  - Grab
+  - Grabbable
   layers:
   - Default
   - TransparentFX
