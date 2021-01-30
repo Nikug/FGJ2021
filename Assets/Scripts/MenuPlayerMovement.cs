@@ -11,7 +11,7 @@ public class MenuPlayerMovement : MonoBehaviour
     /* Player Movement */
     private CharacterController controller;
     public float playerSpeed = 6.0f;
-    
+
 
     /* Player Inputs */
     public string horizontal = "Horizontal";
@@ -20,8 +20,7 @@ public class MenuPlayerMovement : MonoBehaviour
     public GameObject playbutton;
     void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
-
+        // controller = gameObject.AddComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -35,7 +34,8 @@ public class MenuPlayerMovement : MonoBehaviour
         OnClickMenu(area);
     }
 
-    void Move() {
+    void Move()
+    {
         Vector3 move = new Vector3(Input.GetAxis(horizontal), 0, Input.GetAxis(vertical));
         controller.Move(move * Time.deltaTime * playerSpeed);
         if (move != Vector3.zero)
@@ -44,9 +44,10 @@ public class MenuPlayerMovement : MonoBehaviour
         }
     }
 
-    void fixYPosition() {
-        playerBase.transform.position = new Vector3 (playerBase.transform.position.x,
-                                                    playerYPosition, 
+    void fixYPosition()
+    {
+        playerBase.transform.position = new Vector3(playerBase.transform.position.x,
+                                                    playerYPosition,
                                                     playerBase.transform.position.z);
     }
 
@@ -103,10 +104,11 @@ public class MenuPlayerMovement : MonoBehaviour
         }
 
     }
-    void OnTriggerEnter (Collider col) {
+    void OnTriggerEnter(Collider col)
+    {
         string hitObject = col.gameObject.tag;
         //Debug.Log("I collided with the " + hitObject + " !");
-  }
+    }
     /*
     void OnTriggerExit(Collider col)
     {

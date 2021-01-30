@@ -16,7 +16,8 @@ public class GameController : MonoBehaviour
 
     public GameObject player;
     private int playerAmount = 0;
-    private List<GameObject> players;
+    [SerializeField] private List<GameObject> players;
+    private List<string> playerNames;
 
     public GameState gameState = GameState.Game;
     private List<Transform> spawnPoints;
@@ -35,24 +36,28 @@ public class GameController : MonoBehaviour
     void Start()
     {
         players = new List<GameObject>();
+        playerNames = new List<string>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Not sure if this structure is necessary
-        // Can be removed if not needed
-        if (gameState == GameState.Game)
-        {
+        if (Input.GetButton("Start"))
+            if (players.Count > 0)
+            {
+                {
+                    StartGame();
+                }
 
-        }
-        else if (gameState == GameState.MainMenu)
-        {
+            }
+    }
 
-        }
-        else if (gameState == GameState.GameOver)
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Loaded scene " + scene.name);
+        if (scene.name == "GameScene")
         {
-
+            spawnPlayers();
         }
     }
 
@@ -62,10 +67,10 @@ public class GameController : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name != "GameScene")
         {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        spawnPlayers();
 
 
         // Set options / scores / etc
@@ -94,7 +99,9 @@ public class GameController : MonoBehaviour
     {
         if (!playerExists(name))
         {
-            spawnSinglePlayer(name);
+            playerNames.Add(name);
+            var player = spawnSinglePlayer(name);
+            players.Add(player);
 
             return true;
         }
@@ -103,13 +110,15 @@ public class GameController : MonoBehaviour
 
     public void spawnPlayers()
     {
-        foreach (var p in players)
+        players = new List<GameObject>();
+        foreach (var name in playerNames)
         {
-            spawnSinglePlayer(p.GetComponent<PlayerInfo>().playerName);
+            var player = spawnSinglePlayer(name);
+            players.Add(player);
         }
     }
 
-    private void spawnSinglePlayer(string name)
+    private GameObject spawnSinglePlayer(string name)
     {
         var newPlayer = Instantiate(player);
         newPlayer.GetComponent<PlayerInfo>().playerName = name;
@@ -121,9 +130,8 @@ public class GameController : MonoBehaviour
         var grab = newPlayer.GetComponent<PlayerGrab>();
         grab.grabButton = "Joy" + name + "Action1";
 
-        players.Add(newPlayer);
-
         newPlayer.transform.position = getSpawnPoints()[int.Parse(name) - 1].transform.position;
+        return newPlayer;
     }
 
     public GameObject[] getSpawnPoints()
@@ -145,6 +153,7 @@ public class GameController : MonoBehaviour
                 if (p.GetComponent<PlayerInfo>().playerName == name)
                 {
                     players.Remove(p);
+                    playerNames.Remove(name);
                     Destroy(p);
                     return;
                 }

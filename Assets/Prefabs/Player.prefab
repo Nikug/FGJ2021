@@ -214,7 +214,6 @@ GameObject:
   - component: {fileID: 8549735729104990623}
   - component: {fileID: 3025360762339488757}
   - component: {fileID: 7271398052043988885}
-  - component: {fileID: 8549735728401905138}
   - component: {fileID: 937190561721652089}
   - component: {fileID: 2103900222161525151}
   m_Layer: 0
@@ -260,24 +259,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &8549735729104990622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4584855982122881966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d229ce2070363c94c98c697343842a94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerYPosition: 0
-  playerBase: {fileID: 4584855982122881966}
-  playerSpeed: 6
-  horizontal: Horizontal
-  vertical: Vertical
-  extrabutton: 
 --- !u!114 &3025360762339488757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,25 +298,6 @@ MonoBehaviour:
   horizontal: Horizontal
   vertical: Vertical
   extrabutton: 
---- !u!114 &8549735728401905138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4584855982122881966}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c27c0cefd0bb18c48b45c21eba84192f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerYPosition: 0
-  playerBase: {fileID: 2975098631557118080}
-  playerSpeed: 6
-  horizontal: Horizontal
-  vertical: Vertical
-  menubutton: Submit
-  playbutton: {fileID: 0}
 --- !u!114 &937190561721652089
 MonoBehaviour:
   m_ObjectHideFlags: 0
