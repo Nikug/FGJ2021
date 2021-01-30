@@ -12,6 +12,7 @@ public class MiserableParent : MonoBehaviour {
     private int POINTS_PER_ATTRIBUTE = 50;
     public TMP_Text info;
     private System.Random random;
+    public GameObject scoreController;
 
     void Start() {
         random = new System.Random((int)DateTime.Now.Ticks);
@@ -114,7 +115,7 @@ public class MiserableParent : MonoBehaviour {
         return pointsToGive;
     }
 
-    public bool offerChild(LostChild offeredChild) {
+    public bool offerChild(LostChild offeredChild, string playerName) {
         int matchingAttributes = 0;
 
         if (child.getSize() != null && child.getSize() == offeredChild.getSize()) {
@@ -143,6 +144,7 @@ public class MiserableParent : MonoBehaviour {
         if (matchingAttributes >= scoreNeededToPass) {
             Debug.Log("passed");
             changeChild();
+            scoreController.GetComponent<ScoresController>().updateStatusText(playerName, pointsToGive);
             return true;
         }
 
