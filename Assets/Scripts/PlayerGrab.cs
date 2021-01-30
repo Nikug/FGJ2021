@@ -92,7 +92,7 @@ public class PlayerGrab : MonoBehaviour
                 Debug.Log(childWasApproved);
                 if (childWasApproved) {
                     Destroy(heldItem);
-                    ChildMachine.decreaseChildCount();
+                    ChildMachine.deleteChild();
                 } else {
                     this.Yeeeeet(heldItem, -1);
                 }
