@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using TMPro;
 
 public class MiserableParent : MonoBehaviour {
     private LostChild child = null;
@@ -10,9 +11,28 @@ public class MiserableParent : MonoBehaviour {
     private int pointsToGive = 0;
     private int POINTS_PER_ATTRIBUTE = 50;
     private System.Random random = new System.Random();
+    public TMP_Text info;
 
-    private MiserableParent() {
+    /* private MiserableParent() {
+        
+        
+    } */
+
+    void Start() {
         this.changeChild();
+    }
+
+    private void CreateInfo(LostChild childToFind) {
+        string childSize;
+        if (childToFind.getSize().ToString() == "ThiccOhhLordHeComing") {
+            childSize = "Thicc";
+        } else {
+            childSize = childToFind.getSize().ToString();
+        }
+        var infoText = childToFind.getColor() + "\n" + childSize + "\n" + childToFind.getHat() + "\n" + childToFind.getStolenItem();
+
+        info.text = infoText;
+
     }
 
     private LostChild getRandomLostChildWithNAttributes(int pNumberOfAttributes) {
@@ -73,12 +93,12 @@ public class MiserableParent : MonoBehaviour {
             }            
         }
 
-        /*
+   
         Debug.Log(randomChild.getSize());
         Debug.Log(randomChild.getStolenItem());
         Debug.Log(randomChild.getHat());
         Debug.Log(randomChild.getColor());
-        */
+    
 
         return randomChild;
     }
@@ -87,7 +107,7 @@ public class MiserableParent : MonoBehaviour {
         numberOfAttributes = random.Next(1, 5);
         child = this.getRandomLostChildWithNAttributes(numberOfAttributes);
         pointsToGive = numberOfAttributes * POINTS_PER_ATTRIBUTE;
-
+        CreateInfo(getChild());
     }
 
     private LostChild getChild() {
