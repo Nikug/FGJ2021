@@ -12,6 +12,7 @@ TagManager:
   - PlayButton
   - PlayerSpawnPoint
   - Floor
+  - Wall
   layers:
   - Default
   - TransparentFX

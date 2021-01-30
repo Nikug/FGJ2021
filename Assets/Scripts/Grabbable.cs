@@ -6,6 +6,8 @@ public class Grabbable : MonoBehaviour
 {
     public bool grabbed;
     public string lastToucher;
+    public string floorTag;
+    public string wallTag = "Wall";
 
     public void grab(string playerName)
     {
@@ -19,8 +21,18 @@ public class Grabbable : MonoBehaviour
     public void free()
     {
         var collider = GetComponent<CapsuleCollider>();
+        collider.isTrigger = true;
         collider.enabled = true;
         var agent = GetComponent<MoveTo>();
         agent.enableAgentOnTouch = true;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == floorTag || other.tag == wallTag)
+        {
+            var collider = GetComponent<CapsuleCollider>();
+            collider.isTrigger = false;
+        }
     }
 }
