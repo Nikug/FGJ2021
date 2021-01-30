@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController controller;
-    public float playerSpeed = 6.0f;
     public float playerYPosition;
     public GameObject playerBase;
-    // Start is called before the first frame update
+    /* Player Movement */
+    private CharacterController controller;
+    public float playerSpeed = 6.0f;
+    
+
+    /* Player Inputs */
+    public string horizontal = "Horizontal";
+    public string vertical = "Vertical";
+    public string extrabutton;
     void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
@@ -19,14 +25,21 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         /* Movement */
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Move();
+        /* Fix to Player Y Position */
+        fixYPosition();
+    }
+
+    void Move() {
+        Vector3 move = new Vector3(Input.GetAxis(horizontal), 0, Input.GetAxis(vertical));
         controller.Move(move * Time.deltaTime * playerSpeed);
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
         }
+    }
 
-        /* Fix to Player Y Position */
+    void fixYPosition() {
         playerBase.transform.position = new Vector3 (playerBase.transform.position.x,
                                                     playerYPosition, 
                                                     playerBase.transform.position.z);
