@@ -5,28 +5,35 @@ using System;
 using System.Linq;
 using UnityEngine.Serialization;
 
-public class ChildMachine : MonoBehaviour {
+public class ChildMachine : MonoBehaviour
+{
     private int childCount;
     private int maxChilds;
     public GameObject spawningBed;
+    public ToddlerTulostin spawner;
 
-    public int getChildCount() {
+    public int getChildCount()
+    {
         return childCount;
     }
 
-    public int getMaxChilds() {
+    public int getMaxChilds()
+    {
         return maxChilds;
     }
 
-    private void setChildCount(int newChildCount) {
+    private void setChildCount(int newChildCount)
+    {
         childCount = newChildCount;
     }
 
-    private void setMaxChilds(int newMaxChilds) {
+    private void setMaxChilds(int newMaxChilds)
+    {
         maxChilds = newMaxChilds;
     }
 
-    private LostChild getRandomLostChild() {
+    private LostChild getRandomLostChild()
+    {
         System.Random random = new System.Random();
         Array sizeValues = Enum.GetValues(typeof(LostChild.Size));
         Array hatValues = Enum.GetValues(typeof(LostChild.Hat));
@@ -40,32 +47,38 @@ public class ChildMachine : MonoBehaviour {
             (LostChild.StolenItem)stolenItemValues.GetValue(random.Next(stolenItemValues.Length))
         );
     }
-    private LostChild getSpesificLostChild(LostChild.Size pSize, LostChild.Hat pHat, LostChild.Color pColor, LostChild.StolenItem pStolenItem) {
+    private LostChild getSpesificLostChild(LostChild.Size pSize, LostChild.Hat pHat, LostChild.Color pColor, LostChild.StolenItem pStolenItem)
+    {
         return new LostChild(pSize, pHat, pColor, pStolenItem);
     }
 
-    public ChildMachine(int pMaxChilds) {
+    public ChildMachine(int pMaxChilds)
+    {
         childCount = 0;
         maxChilds = pMaxChilds;
     }
 
-    public void decreaseChildCount() {
-        this.setChildCount(childCount-1);
+    public void decreaseChildCount()
+    {
+        this.setChildCount(childCount - 1);
     }
 
-    private void spawnLostChild() {
+    private void spawnLostChild()
+    {
         LostChild child = this.getRandomLostChild();
+        spawner.spawnChild(child);
         /*
         Debug.Log(child.getSize());
         Debug.Log(child.getStolenItem());
         Debug.Log(child.getHat());
         Debug.Log(child.getColor());
         */
-        
+
     }
 
-    void Start() {
-        Debug.Log(spawningBed.transform.position);
-        this.spawnLostChild();
+    void Start()
+    {
+        // Debug.Log(spawningBed.transform.position);
+        // this.spawnLostChild();
     }
 }

@@ -24,10 +24,13 @@ public class PlayerGrab : MonoBehaviour
 
         if (Input.GetButtonDown(grabButton))
         {
-            if(isCarrying) {
+            if (isCarrying)
+            {
                 handleDrop();
-            } else {
-            handleGrab();
+            }
+            else
+            {
+                handleGrab();
             }
         }
     }
@@ -65,12 +68,13 @@ public class PlayerGrab : MonoBehaviour
         }
     }
 
-    private void handleDrop() {
+    private void handleDrop()
+    {
         var body = heldItem.GetComponent<Rigidbody>();
         body.AddForce(this.transform.forward * throwForce, ForceMode.Impulse);
         var grabbable = heldItem.GetComponent<Grabbable>();
         grabbable.free();
-        
+
         isCarrying = false;
         heldItem = null;
     }

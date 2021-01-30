@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 3599632829935820897}
   - component: {fileID: 8249813720164223694}
   - component: {fileID: -4604686910460145364}
+  - component: {fileID: 6234378509157540396}
   m_Layer: 0
   m_Name: Toddler
   m_TagString: Toddler
@@ -393,6 +394,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &6234378509157540396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5764040929675448460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 040d9b2d9361a6b479a106c1c5e83f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hatTransform: {fileID: 1954420138189031936}
+  handTransform: {fileID: 5047139381983219430}
 --- !u!1 &6240249916700938811
 GameObject:
   m_ObjectHideFlags: 0
