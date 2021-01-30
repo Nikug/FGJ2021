@@ -704,6 +704,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3025360762339488757, guid: d1c584627d0148b4f9accc6a76bb740a,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025360762339488757, guid: d1c584627d0148b4f9accc6a76bb740a,
+        type: 3}
       propertyPath: grabButton
       value: 
       objectReference: {fileID: 0}
@@ -769,8 +774,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8549735728401905138, guid: d1c584627d0148b4f9accc6a76bb740a,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549735728401905138, guid: d1c584627d0148b4f9accc6a76bb740a,
+        type: 3}
       propertyPath: playbutton
       value: 
       objectReference: {fileID: 461715525}
-    m_RemovedComponents: []
+    - target: {fileID: 8549735729104990622, guid: d1c584627d0148b4f9accc6a76bb740a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8549735729104990622, guid: d1c584627d0148b4f9accc6a76bb740a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d1c584627d0148b4f9accc6a76bb740a, type: 3}
