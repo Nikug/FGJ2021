@@ -10,13 +10,8 @@ public class MiserableParent : MonoBehaviour {
     private int numberOfAttributes = 0;
     private int pointsToGive = 0;
     private int POINTS_PER_ATTRIBUTE = 50;
-    private System.Random random = new System.Random();
     public TMP_Text info;
-
-    /* private MiserableParent() {
-        
-        
-    } */
+    private System.Random random = new System.Random(new System.DateTime().Millisecond);
 
     void Start() {
         this.changeChild();
