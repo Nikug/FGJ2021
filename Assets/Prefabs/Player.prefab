@@ -125,7 +125,7 @@ GameObject:
   m_Name: PlayerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2975098631557118086
@@ -214,10 +214,10 @@ GameObject:
   - component: {fileID: 8549735729104990623}
   - component: {fileID: 8549735729104990622}
   - component: {fileID: 3025360762339488757}
-  - component: {fileID: 8549735728401905138}
+  - component: {fileID: 2070361795}
   m_Layer: 0
-  m_Name: Player 1
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d229ce2070363c94c98c697343842a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerYPosition: 2
+  playerYPosition: 0
   playerBase: {fileID: 4584855982122881966}
   playerSpeed: 6
   horizontal: Horizontal
@@ -289,32 +289,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  grabButton: 
-  canGrab: 0
+  grabButton: Submit
+  canGrab: 1
   isCarrying: 0
   heldItem: {fileID: 0}
   grabPoint: {fileID: 3924062659299440401}
-  grabRadius: 0
+  grabRadius: 1
   throwForce: 0
---- !u!114 &8549735728401905138
-MonoBehaviour:
+--- !u!195 &2070361795
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4584855982122881966}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c27c0cefd0bb18c48b45c21eba84192f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerYPosition: 0
-  playerBase: {fileID: 2975098631557118080}
-  playerSpeed: 6
-  horizontal: Horizontal
-  vertical: Vertical
-  menubutton: Submit
-  playbutton: {fileID: 0}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8549735727900599323
 GameObject:
   m_ObjectHideFlags: 0
