@@ -61,14 +61,16 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetButtonDown("Start"))
             {
-                var ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UICOntroller>();
-                if (ui.UI.activeInHierarchy)
+                var ui = GameObject.FindGameObjectWithTag("UI");
+                if (ui is null) return;
+                var uiComponent = ui.GetComponent<UICOntroller>();
+                if (uiComponent.UI.activeInHierarchy)
                 {
-                    ui.CloseMenu();
+                    uiComponent.CloseMenu();
                 }
                 else
                 {
-                    ui.OpenMenu();
+                    uiComponent.OpenMenu();
                 }
             }
         }
