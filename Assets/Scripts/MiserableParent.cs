@@ -15,12 +15,14 @@ public class MiserableParent : MonoBehaviour
     private System.Random random;
     public GameObject scoreController;
     public ParentSoundHandler sounds;
+    private GameController gameController;
 
     void Start()
     {
         random = new System.Random((int)DateTime.Now.Ticks);
         this.changeChild();
         //scoreController.GetComponent<ScoresController>().updateStatusText("1", 50);
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     private void CreateInfo(LostChild childToFind)
@@ -164,17 +166,19 @@ public class MiserableParent : MonoBehaviour
 
         int scoreNeededToPass = random.Next(1, numberOfAttributes + 1);
 
-        Debug.Log("matchingAttributes");
-        Debug.Log(matchingAttributes);
-        Debug.Log("scoreNeededToPass");
-        Debug.Log(scoreNeededToPass);
-
         if (matchingAttributes >= scoreNeededToPass)
         {
-            Debug.Log("passed");
+            //Debug.Log("passed");
             sounds.AcceptSound();
             changeChild();
-            scoreController.GetComponent<ScoresController>().updateStatusText(playerName, pointsToGive);
+
+            /* Give player points */
+            //Debug.Log("Give player: " + playerName + " " + pointsToGive + " points.");
+            gameController.givePoints(playerName, pointsToGive);
+            int newScore = gameController.getPlayerScore(playerName);
+            //Debug.Log("New points: " + newScore);
+            scoreController.GetComponent<ScoresController>().updateStatusText(playerName, newScore);
+
             return true;
         }
 
