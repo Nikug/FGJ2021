@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 
     }
     public int maxPlayers = 4;
+    public float maxScore = 600;
 
     public GameObject player;
     private int playerAmount = 0;
@@ -95,6 +96,7 @@ public class GameController : MonoBehaviour
         this.gameState = GameState.GameOver;
 
         // Open some menu or something
+        Debug.Log("End game. Now. Please.");
         // Despawn / stop players from playing
     }
 
@@ -192,6 +194,9 @@ public class GameController : MonoBehaviour
             var playerInfo = player.GetComponent<PlayerInfo>();
             if (playerInfo.playerName == playerName) {
                 playerInfo.playerScore += points;
+                if (playerInfo.playerScore >= maxScore) {
+                    EndGame();
+                }
             }
         }
     }
