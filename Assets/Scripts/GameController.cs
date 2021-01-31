@@ -148,6 +148,10 @@ public class GameController : MonoBehaviour
     {
         var newPlayer = Instantiate(player);
         newPlayer.GetComponent<PlayerInfo>().playerName = name;
+        var renderers = newPlayer.GetComponentsInChildren<Renderer>();
+        foreach (var renderer in renderers) {
+            renderer.material.SetColor("_Color",Random.ColorHSV());
+        }
 
         var controller = newPlayer.GetComponent<PlayerMovement>();
         controller.horizontal = "Joy" + name + "Axis1";
