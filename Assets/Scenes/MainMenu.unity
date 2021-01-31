@@ -1825,7 +1825,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 434111befa6a5104a8b99deb1cf4537e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.475
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2033,7 +2033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 8300000, guid: 573805470e2483049a942c5e24c9fa4c, type: 3}
-  gameMusic: {fileID: 8300000, guid: 573805470e2483049a942c5e24c9fa4c, type: 3}
+  gameMusic: {fileID: 8300000, guid: be2205b3739023c4fa9e0db9b6642e19, type: 3}
   source: {fileID: 1859894115}
   gameController: {fileID: 1410099630}
 --- !u!4 &1958833317 stripped

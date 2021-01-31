@@ -14,6 +14,7 @@ public class PlayerGrab : MonoBehaviour
     public float grabRadius;
     public float throwForce;
     public string parentTag;
+    public PlayerSoundHandler sounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class PlayerGrab : MonoBehaviour
             else
             {
                 handleGrab();
+                sounds.pickUp();
             }
         }
     }
