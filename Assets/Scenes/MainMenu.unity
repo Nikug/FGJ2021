@@ -464,7 +464,7 @@ MonoBehaviour:
   scoreInterval: 50
   minScoreLimit: 50
   maxScoreLimit: 100000
-  defaultScoreLimit: 1000
+  defaultScoreLimit: 600
   intervalWaitTime: 0.2
   text: {fileID: 1607046615}
 --- !u!4 &566424230
@@ -1902,7 +1902,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score Limit: 1000'
+  m_text: 'Score Limit: 600'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1971,7 +1971,7 @@ MonoBehaviour:
   m_margin: {x: -0.9795727, y: 0, z: -1.097659, w: 0}
   m_textInfo:
     textComponent: {fileID: 1607046615}
-    characterCount: 17
+    characterCount: 16
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
