@@ -8,7 +8,7 @@ public class ScoreLimitSelectorHandler : MonoBehaviour
     public int scoreInterval;
     public int minScoreLimit = 50;
     public int maxScoreLimit = 100000;
-    public int defaultScoreLimit = 1000;
+    public int defaultScoreLimit = 600;
     private GameController controller;
     private int scoreLimit;
     public float intervalWaitTime;
