@@ -13,6 +13,7 @@ TagManager:
   - PlayerSpawnPoint
   - Floor
   - Wall
+  - UI
   layers:
   - Default
   - TransparentFX

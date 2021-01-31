@@ -61,7 +61,8 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetButton("Start"))
             {
-                // Open menu, pause game
+                var ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UICOntroller>();
+                ui.OpenMenu();
             }
         }
     }
@@ -95,9 +96,9 @@ public class GameController : MonoBehaviour
     {
         this.gameState = GameState.GameOver;
 
-        // Open some menu or something
-        Debug.Log("End game. Now. Please.");
-        // Despawn / stop players from playing
+        var ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UICOntroller>();
+        ui.OpenMenu();
+        ui.ShowGameOverText();
     }
 
     public void ReturnToMainMenu()
@@ -189,24 +190,31 @@ public class GameController : MonoBehaviour
         return false;
     }
 
-    public void givePoints(string playerName, int points) {
-        foreach(var player in players) {
+    public void givePoints(string playerName, int points)
+    {
+        foreach (var player in players)
+        {
             var playerInfo = player.GetComponent<PlayerInfo>();
-            if (playerInfo.playerName == playerName) {
+            if (playerInfo.playerName == playerName)
+            {
                 playerInfo.playerScore += points;
-                if (playerInfo.playerScore >= maxScore) {
+                if (playerInfo.playerScore >= maxScore)
+                {
                     EndGame();
                 }
             }
         }
     }
 
-    public int getPlayerScore(string playerName) {
+    public int getPlayerScore(string playerName)
+    {
         int playerScore = 0;
 
-        foreach(var player in players) {
+        foreach (var player in players)
+        {
             var playerInfo = player.GetComponent<PlayerInfo>();
-            if (playerInfo.playerName == playerName) {
+            if (playerInfo.playerName == playerName)
+            {
                 playerScore = playerInfo.playerScore;
             }
         }

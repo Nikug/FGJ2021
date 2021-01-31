@@ -7,6 +7,7 @@ using System;
 public class ScoresController : MonoBehaviour
 {
     public List<TextMeshPro> statusText;
+    public UICOntroller uIC;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class ScoresController : MonoBehaviour
 
     public void updateStatusText(string playerName, int newPoints)
     {
-        Debug.Log(playerName + " " + newPoints);
+        uIC.updateStatusText(playerName, newPoints);
 
         switch (playerName)
         {
