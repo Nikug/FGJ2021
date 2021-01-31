@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Start"))
+        if (Input.GetButtonDown("Start"))
             if (players.Count > 0 && gameState == GameState.MainMenu)
             {
                 {
@@ -59,10 +59,17 @@ public class GameController : MonoBehaviour
 
         if (gameState == GameState.Game)
         {
-            if (Input.GetButton("Start"))
+            if (Input.GetButtonDown("Start"))
             {
                 var ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UICOntroller>();
-                ui.OpenMenu();
+                if (ui.UI.activeInHierarchy)
+                {
+                    ui.CloseMenu();
+                }
+                else
+                {
+                    ui.OpenMenu();
+                }
             }
         }
     }

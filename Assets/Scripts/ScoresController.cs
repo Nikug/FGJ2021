@@ -7,10 +7,14 @@ using System;
 public class ScoresController : MonoBehaviour
 {
     public List<TextMeshPro> statusText;
+    public TextMeshPro scoreLimit;
     public UICOntroller uIC;
+    private GameController controller;
     // Start is called before the first frame update
     void Start()
     {
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        scoreLimit.text = "Score limit: " + controller.maxScore;
     }
 
     public void updateStatusText(string playerName, int newPoints)
