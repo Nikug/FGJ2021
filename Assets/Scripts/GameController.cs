@@ -186,4 +186,25 @@ public class GameController : MonoBehaviour
         }
         return false;
     }
+
+    public void givePoints(string playerName, int points) {
+        foreach(var player in players) {
+            var playerInfo = player.GetComponent<PlayerInfo>();
+            if (playerInfo.playerName == playerName) {
+                playerInfo.playerScore += points;
+            }
+        }
+    }
+
+    public int getPlayerScore(string playerName) {
+        int playerScore = 0;
+
+        foreach(var player in players) {
+            var playerInfo = player.GetComponent<PlayerInfo>();
+            if (playerInfo.playerName == playerName) {
+                playerScore = playerInfo.playerScore;
+            }
+        }
+        return playerScore;
+    }
 }
