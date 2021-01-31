@@ -14,6 +14,7 @@ public class MiserableParent : MonoBehaviour
     public TMP_Text info;
     private System.Random random;
     public GameObject scoreController;
+    public ParentSoundHandler sounds;
 
     void Start()
     {
@@ -171,12 +172,14 @@ public class MiserableParent : MonoBehaviour
         if (matchingAttributes >= scoreNeededToPass)
         {
             Debug.Log("passed");
+            sounds.AcceptSound();
             changeChild();
             scoreController.GetComponent<ScoresController>().updateStatusText(playerName, pointsToGive);
             return true;
         }
 
         Debug.Log("failed");
+        sounds.RejectSound();
         return false;
     }
 }

@@ -8,9 +8,11 @@ public class Grabbable : MonoBehaviour
     public string lastToucher;
     public string floorTag;
     public string wallTag = "Wall";
+    public ChildSoundHandler sounds;
 
     public void grab(string playerName)
     {
+        sounds.playRandomSound(1f);
         var collider = GetComponent<CapsuleCollider>();
         collider.enabled = false;
         var agent = GetComponent<MoveTo>();
