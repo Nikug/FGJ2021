@@ -8,9 +8,9 @@ public class ToddlerTulostin : MonoBehaviour
     public ToddlerPicker picker;
     public string spawnerTag;
 
-    public void spawnChild(LostChild properties)
+    public void spawnChild(LostChild properties, bool forceSpawn = false)
     {
-        var freeSpawnPoints = getSpawnPoints();
+        var freeSpawnPoints = getSpawnPoints(forceSpawn);
         if (freeSpawnPoints.Count == 0) return;
         var index = Random.Range(0, freeSpawnPoints.Count);
 
@@ -21,7 +21,7 @@ public class ToddlerTulostin : MonoBehaviour
         setToddlerProperties(newToddler, properties);
     }
 
-    private List<Transform> getSpawnPoints()
+    private List<Transform> getSpawnPoints(bool force = false)
     {
         var spawnPoints = GameObject.FindGameObjectsWithTag(spawnerTag);
         var freeSpawnPoints = new List<Transform>();
@@ -29,7 +29,7 @@ public class ToddlerTulostin : MonoBehaviour
         {
             if (spawnPoint.TryGetComponent<SpawnPoint>(out var component))
             {
-                if (component.check())
+                if (component.check() || force == true)
                 {
                     freeSpawnPoints.Add(spawnPoint.transform);
                 }

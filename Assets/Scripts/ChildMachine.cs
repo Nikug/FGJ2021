@@ -9,7 +9,7 @@ public class ChildMachine : MonoBehaviour
     private static ChildMachine _instance = null;
 
     private int childCount;
-    private int maxChilds;
+    private int maxChilds = 18;
     public GameObject spawningBed;
     public ToddlerTulostin spawner;
     private System.Random random;
@@ -76,10 +76,13 @@ public class ChildMachine : MonoBehaviour
         spawnLostChild();
     }
 
-    private static void spawnLostChild()
+    private static void spawnLostChild(bool noLimit = false)
     {
+        if (Instance.childCount > Instance.maxChilds && noLimit == false) {
+            return;
+        }
         LostChild child = getRandomLostChild();
-        Instance.spawner.spawnChild(child);
+        Instance.spawner.spawnChild(child, noLimit);
         /*
         Debug.Log(child.getSize());
         Debug.Log(child.getStolenItem());
@@ -90,10 +93,17 @@ public class ChildMachine : MonoBehaviour
         Instance.childCount = Instance.childCount + 1;
     }
 
+    public static void spawnChaos()
+    {
+        for (int i = 0; i < 10; i++) {
+            spawnLostChild(true);
+        }
+    }
+
     void Start()
     {
         random = new System.Random();
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 18; i++) {
             spawnLostChild();
         }
     }
