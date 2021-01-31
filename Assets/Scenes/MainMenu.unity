@@ -1223,7 +1223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa204de169d7fb841a07c384b7dfe4b6, type: 2}
+  - {fileID: 2100000, guid: 3b74aa28eeff0744488da9afb7eccc29, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1261,7 +1261,7 @@ Transform:
   m_GameObject: {fileID: 972226342}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1, z: 1}
   m_Children:
   - {fileID: 461715530}
   - {fileID: 631174766}
@@ -1411,16 +1411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe5be9f0c260a74d8b0ed5aa8b4d9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 1410099630}
-  sounds: {fileID: 1792508846}
-  playerStatusPrompts:
-  - {fileID: 899595210}
-  - {fileID: 1597696809}
-  - {fileID: 870539671}
-  - {fileID: 931114083}
-  playerJoinKey: []
-  playerLeaveKey: []
-  joinedPlayers: []
 --- !u!4 &1337577401
 Transform:
   m_ObjectHideFlags: 0
@@ -1781,18 +1771,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721603919}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1792508846 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4051552995753191418, guid: 23dd632897d883042ab4174c02d8ce46,
-    type: 3}
-  m_PrefabInstance: {fileID: 4051552995112805460}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe412ba9db10d944a896d0f76f372a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1859894113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,7 +1803,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 434111befa6a5104a8b99deb1cf4537e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.475
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2033,7 +2011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 8300000, guid: 573805470e2483049a942c5e24c9fa4c, type: 3}
-  gameMusic: {fileID: 8300000, guid: 573805470e2483049a942c5e24c9fa4c, type: 3}
+  gameMusic: {fileID: 8300000, guid: be2205b3739023c4fa9e0db9b6642e19, type: 3}
   source: {fileID: 1859894115}
   gameController: {fileID: 1410099630}
 --- !u!4 &1958833317 stripped

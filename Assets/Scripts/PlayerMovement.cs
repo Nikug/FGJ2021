@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     public string floorTag;
     private ParticleSystem.EmissionModule emission;
     private Transform floor;
+    public PlayerSoundHandler sounds;
+    public float minMovementToSound;
+    public float maxMovementToSound;
     void Start()
     {
         if (controller is null)
@@ -40,9 +43,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* Movement */
-        // Move();
-        /* Fix to Player Y Position */
+        var movementWithoutY = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        sounds.setMoving(movementWithoutY.magnitude > minMovementToSound, Mathf.Lerp(0, 1, movementWithoutY.magnitude / maxMovementToSound));
 
     }
 

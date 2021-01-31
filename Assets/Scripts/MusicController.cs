@@ -21,4 +21,26 @@ public class MusicController : MonoBehaviour
         }
         source.Play();
     }
+
+    void Update()
+    {
+        if (gameController.gameState == GameController.GameState.MainMenu)
+        {
+            if (source.clip.name != menuMusic.name)
+            {
+                source.clip = menuMusic;
+            }
+        }
+        else
+        {
+            if (source.clip.name != gameMusic.name)
+            {
+                source.clip = gameMusic;
+            }
+        }
+        if (!source.isPlaying)
+        {
+            source.Play();
+        }
+    }
 }
